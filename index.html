@@ -8,13 +8,75 @@
   </head>
   <body>
     <main class="container">
-      <section class="hero">
-        <p class="eyebrow">Phase 1</p>
-        <h1>Archaeological Photogrammetry App</h1>
-        <p class="lead">
-          A foundational interface for managing archaeological site captures and 3D reconstruction workflows.
-        </p>
-        <button id="startButton">Get Started</button>
+      <!-- Sidebar Navigation -->
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <h2>Archaeological App</h2>
+        </div>
+        <nav>
+          <button class="nav-btn active" data-view="dashboard">📊 Dashboard</button>
+          <button class="nav-btn" data-view="upload">📸 Upload Images</button>
+          <button class="nav-btn" data-view="processing">⚙️ Processing</button>
+          <button class="nav-btn" data-view="viewer3d">🎯 3D Viewer</button>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <section class="main-content">
+        <!-- Dashboard View -->
+        <div id="dashboard" class="view active">
+          <div class="hero">
+            <p class="eyebrow">Phase 1</p>
+            <h1>Archaeological Photogrammetry App</h1>
+            <p class="lead">
+              A foundational interface for managing archaeological site captures and 3D reconstruction workflows.
+            </p>
+            <button id="startButton" class="primary-btn">Get Started</button>
+          </div>
+          
+          <div class="projects-grid">
+            <h2>Your Projects</h2>
+            <div id="projectsList" class="projects-list">
+              <!-- Projects will be loaded here -->
+            </div>
+            <button id="newProjectBtn" class="add-project-btn">+ New Project</button>
+          </div>
+        </div>
+
+        <!-- Upload View -->
+        <div id="upload" class="view">
+          <section class="upload-section">
+            <h2>Upload Archaeological Images</h2>
+            <div class="upload-area" id="uploadArea">
+              <p>Drag and drop images here or click to select</p>
+              <input type="file" id="fileInput" multiple accept="image/*" style="display: none;" />
+            </div>
+            <div id="imagePreview" class="image-preview">
+              <!-- Preview images will be shown here -->
+            </div>
+            <button id="processBtn" class="primary-btn" disabled>Process Images</button>
+          </section>
+        </div>
+
+        <!-- Processing View -->
+        <div id="processing" class="view">
+          <section class="processing-section">
+            <h2>Processing Progress</h2>
+            <div id="processingStatus" class="processing-status">
+              No processing in progress
+            </div>
+          </section>
+        </div>
+
+        <!-- 3D Viewer View -->
+        <div id="viewer3d" class="view">
+          <section class="viewer-section">
+            <h2>3D Model Viewer</h2>
+            <div id="canvas3d" class="canvas-3d">
+              <!-- 3D canvas will be rendered here -->
+            </div>
+          </section>
+        </div>
       </section>
     </main>
     <script src="app.js"></script>
